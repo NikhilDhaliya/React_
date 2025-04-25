@@ -7,6 +7,8 @@ function App() {
   
   const getData = async () => {
     const response = await axios.get("https://picsum.photos/v2/list")
+    console.log(response);
+    
     
     setData(response.data)
   
@@ -17,9 +19,9 @@ function App() {
   // }, [])
 
   return (
-    <div className="p-10">
+    <div className="w-full h-fit p-10 bg-black">
     <button onClick={getData} className="bg-teal-700 text-white font-semibold text-2xl px-6 py-3 rounded cursor-pointer active:scale-90">Get Data</button>
-    <div className="p-5 mt-5 bg-gray-950">
+    <div className="p-5 mt-5 bg-gray-200">
       {data.map(function(elem,idx){
         return <div key = {idx} className="bg-gray-50 text-black flex item-center justify-between w-full px-7 py-6 rounded mb-3">
           <img className="h-40" src={elem.download_url} alt="" />
